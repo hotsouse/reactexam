@@ -1,0 +1,15 @@
+:root{
+  --bg:#f4f7fb; --card:#fff; --muted:#6b7280; --accent:#2563eb;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#0f172a}
+.app-root{max-width:1200px;margin:20px auto;padding:12px}
+.app-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.card{background:var(--card);border-radius:10px;padding:12px;box-shadow:0 2px 8px rgba(2,6,23,0.06);margin-bottom:12px}
+.button{background:var(--accent);color:white;padding:8px 10px;border-radius:8px;border:0;cursor:pointer}
+.input{padding:8px;border-radius:8px;border:1px solid #e6edf3;width:100%}
+.small{font-size:13px;color:var(--muted)}
+.timer-display{font-family:Menlo,monospace;font-size:28px}
+.nav{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.nav button{background:transparent;border:1px solid transparent;padding:8px;border-radius:8px;cursor:pointer}
+.nav button.active{background:#e6eefc;border-color:#cfe0ff}
