@@ -22,27 +22,67 @@ export default function App(){
     <div className="app-root">
       <Navbar page={page} setPage={setPage} />
       <main className="app-grid">
-        <section className="col main-col">
-          {page==='dashboard' && <>
-            <TaskTracker />
-            <Pomodoro />
-            <AutoScheduler />
-            <DeadlineTracker />
-          </>}
-          {page==='notes' && <Notes />}
-          {page==='flashcards' && <Flashcards />}
-          {page==='mindmap' && <MindMap />}
-          {page==='breathing' && <Breathing />}
-        </section>
-
-        <aside className="col side-col">
-          <ProductivityChart />
-          <SemesterPlanner />
-          <StressMeter />
-          <SleepSounds />
-          <FocusMode />
-          <ExamModeToggle />
-        </aside>
+        {page === 'dashboard' && (
+          <div className="dashboard-grid">
+            {/* Первый ряд - основные инструменты */}
+            <div className="grid-row">
+              <div className="grid-card task-tracker">
+                <TaskTracker />
+              </div>
+              <div className="grid-card pomodoro">
+                <Pomodoro />
+              </div>
+              <div className="grid-card auto-scheduler">
+                <AutoScheduler />
+              </div>
+              <div className="grid-card productivity">
+                <ProductivityChart />
+              </div>
+            </div>
+            
+            {/* Второй ряд - инструменты для фокуса и релаксации */}
+            <div className="grid-row">
+              <div className="grid-card stress-meter">
+                <StressMeter />
+              </div>
+              <div className="grid-card sleep-sounds">
+                <SleepSounds />
+              </div>
+              <div className="grid-card focus-mode">
+                <FocusMode />
+              </div>
+              <div className="grid-card exam-mode">
+                <ExamModeToggle />
+              </div>
+              <div className="grid-card breathing">
+                <Breathing />
+              </div>
+            </div>
+            
+            {/* Третий ряд - трекер дедлайнов */}
+            <div className="grid-row">
+              <div className="grid-card deadline-tracker">
+                <DeadlineTracker />
+              </div>
+            </div>
+            
+            {/* Четвертый ряд - планировщик семестра */}
+            <div className="grid-row">
+              <div className="grid-card semester-planner">
+                <SemesterPlanner />
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {page !== 'dashboard' && (
+          <section className="full-page">
+            {page === 'notes' && <Notes />}
+            {page === 'flashcards' && <Flashcards />}
+            {page === 'mindmap' && <MindMap />}
+            {page === 'breathing' && <Breathing />}
+          </section>
+        )}
       </main>
     </div>
   )
